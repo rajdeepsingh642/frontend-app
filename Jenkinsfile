@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy to Conatiner') {
             steps {
                 sh "docker build -t frontend ."
-                sh "docker run -d 8081:8081 --name frontend frontend"
+                sh "docker run  -p 8081:8081 --name frontend frontend"
             }
         }
     }
