@@ -15,34 +15,13 @@ pipeline {
             }
         }
         
-        stage('OWASP FS SCAN') {
-            steps {
-                dependencyCheck additionalArguments: '--scan .--disableYarnAudit --disableNodeAudit', odcInstallation: 'DC'
-                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-            }
-        }
+  
         
        
         
-       
-        
-        
-         stage('Install Dependencies') {
-            steps {
-                sh "npm install"
-            }
-        }
-        
+    
       
-        
-        stage('frontend') {
-            steps {
-                dir('/root/.jenkins/workspace/frontend') {
-                    sh "npm install"
-                }
-            }
-        }
-        
+     
         stage('Deploy to Conatiner') {
             steps {
                 sh "docker build -t frontend ."
