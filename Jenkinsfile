@@ -37,7 +37,7 @@ pipeline {
         
         stage('frontend') {
             steps {
-                dir('/root/.jenkins/workspace/Bank/app/frontend') {
+                dir('/root/.jenkins/workspace/frontend') {
                     sh "npm install"
                 }
             }
